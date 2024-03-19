@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  database:
+    container_name: mariadb_member
+    image: mariadb:10.6
+    restart: always
+    environment:
+      MYSQL_DATABASE: member
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: 1234
+      TZ: 'Asia/Seoul'
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/conf.d:/etc/mysql/conf.d # MySQL 설정 파일 위치
+    command:
+      - "mysqld"
+      - "--character-set-server=utf8mb4"
+      - "--collation-server=utf8mb4_unicode_ci"
+    networks:
+      - test_network
+
+networks:
+  test_network:
