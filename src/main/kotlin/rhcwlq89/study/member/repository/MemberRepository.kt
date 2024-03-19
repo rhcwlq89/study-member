@@ -5,4 +5,5 @@ import rhcwlq89.study.member.domain.entity.Member
 
 
 interface MemberRepository : JpaRepository<Member, Long> {
+    fun findMemberByEmail(email: String): Member?
 }

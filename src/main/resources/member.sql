@@ -1,3 +1,4 @@
+SET foreign_key_checks = 0; # 외래키 체크 설정 해제
 DROP TABLE IF EXISTS `member`.`member`;
 CREATE TABLE `member`.`member`
 (
@@ -28,6 +29,7 @@ CREATE TABLE `member`.`role`
     `created_at` datetime,
     `updated_at` datetime
 );
+SET foreign_key_checks = 1; # 외래키 체크 설정 해제
 
 ALTER TABLE `member`.`member_role`
     ADD FOREIGN KEY (`member_uid`) REFERENCES `member`.`member` (`member_uid`);

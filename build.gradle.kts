@@ -24,13 +24,11 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.mariadb.jdbc:mariadb-java-client:3.3.3")
-
-    // https://mvnrepository.com/artifact/javax.validation/validation-api
     implementation("javax.validation:validation-api:2.0.1.Final")
 
 
