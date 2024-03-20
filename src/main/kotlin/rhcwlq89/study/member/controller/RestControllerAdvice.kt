@@ -1,6 +1,6 @@
 package rhcwlq89.study.member.controller
 
-import com.fastfive.booking.domain.dto.common.CommonErrorMessage
+import rhcwlq89.study.member.domain.dto.common.CommonErrorMessage
 import jakarta.servlet.http.HttpServletRequest
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
