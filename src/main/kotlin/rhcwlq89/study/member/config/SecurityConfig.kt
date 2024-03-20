@@ -17,7 +17,12 @@ class SecurityConfig {
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         return http
-            .headers { it -> it.frameOptions { it.disable() } }
+            .headers { it ->
+                it
+                    .frameOptions { it.sameOrigin() } // X-frames-options
+                    .contentSecurityPolicy { it.reportOnly() } // Content-Security-Policy
+            }
+//            .cors {  }
             .csrf { it.disable() }
             .httpBasic { it.disable() }
             .sessionManagement { it.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }

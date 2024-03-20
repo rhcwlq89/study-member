@@ -2,9 +2,10 @@ SET foreign_key_checks = 0; # 외래키 체크 설정 해제
 DROP TABLE IF EXISTS `member`.`member`;
 CREATE TABLE `member`.`member`
 (
-    `member_uid`      bigint PRIMARY KEY,
+    `member_uid`      bigint PRIMARY KEY auto_increment,
     `member_name`     varchar(100),
     `email`           varchar(150),
+    `password`        varchar(68),
     `phone_number`    varchar(64),
     `birth_date`      varchar(30),
     `deleted_yn`      bool,
@@ -16,7 +17,7 @@ CREATE TABLE `member`.`member`
 DROP TABLE IF EXISTS `member`.`member_role`;
 CREATE TABLE `member`.`member_role`
 (
-    `member_role_uid` bigint PRIMARY KEY,
+    `member_role_uid` bigint PRIMARY KEY auto_increment,
     `member_uid`      bigint,
     `role_uid`        bigint
 );
@@ -24,7 +25,7 @@ CREATE TABLE `member`.`member_role`
 DROP TABLE IF EXISTS `member`.`role`;
 CREATE TABLE `member`.`role`
 (
-    `role_uid`   bigint PRIMARY KEY,
+    `role_uid`   bigint PRIMARY KEY auto_increment,
     `role_name`  varchar(150),
     `created_at` datetime,
     `updated_at` datetime

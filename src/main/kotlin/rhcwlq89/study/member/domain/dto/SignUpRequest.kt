@@ -17,7 +17,6 @@ data class SignUpRequest(
     val phoneNumber: String,
     @field:Pattern(regexp = "/(\\d{4})[-.\\s](\\d{2})[-.\\s](\\d{2})")
     val birthDate: String,
-    val deletedYn: Boolean,
 ) {
     fun toEntity(): Member {
         return Member(
