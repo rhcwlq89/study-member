@@ -7,6 +7,9 @@ import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.crypto.factory.PasswordEncoderFactories
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.web.SecurityFilterChain
+import org.springframework.web.cors.CorsConfiguration
+import org.springframework.web.cors.CorsConfigurationSource
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource
 
 @Configuration
 class SecurityConfig {
@@ -22,10 +25,23 @@ class SecurityConfig {
                     .frameOptions { it.sameOrigin() } // X-frames-options
                     .contentSecurityPolicy { it.reportOnly() } // Content-Security-Policy
             }
-//            .cors {  }
+            .cors { }
             .csrf { it.disable() }
-            .httpBasic { it.disable() }
+            .httpBasic { }
             .sessionManagement { it.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }
             .build()
     }
+
+    @Bean
+    fun corsConfigurationSource(): CorsConfigurationSource {
+        val configuration = CorsConfiguration()
+        configuration.allowedOrigins = mutableListOf("*")
+        configuration.allowedMethods = mutableListOf("GET", "POST")
+        configuration.allowedHeaders = mutableListOf("*")
+
+        val source = UrlBasedCorsConfigurationSource()
+        source.registerCorsConfiguration("/**", configuration)
+        return source
+    }
+
 }
