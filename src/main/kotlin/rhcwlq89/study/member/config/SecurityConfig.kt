@@ -27,7 +27,8 @@ class SecurityConfig {
             }
             .cors { }
             .csrf { it.disable() }
-            .httpBasic { }
+//            .httpBasic { }  // HTTP Basic Security
+//            .formLogin { } // using UsernamePasswordAuthenticationFilter
             .sessionManagement { it.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }
             .build()
     }

@@ -13,7 +13,23 @@ spring:
     open-in-view: false
     hibernate:
       ddl-auto: none
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: 3b9c8d8b1c4998931071
+            client-secret: 6bedf9cda01c141cfce78137c8ba1ed568dcb75d
+          google:
+            client-id: your-app-client-id
+            client-secret: your-app-client-secret
+          spring:
+            client-id: your-app-client-id
+            client-secret: your-app-client-secret
 
 logging:
   level:
     root: debug
+
+server:
+  port: 8080
